@@ -1,0 +1,1319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mpop_uatModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DashboardPages">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PageDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_MPTBillCharge">
+          <Key>
+            <PropertyRef Name="MPTBillChargeID" />
+          </Key>
+          <Property Name="MPTBillChargeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MSISDN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Result" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_MyTelBillCharge">
+          <Key>
+            <PropertyRef Name="MyTelBillChargeID" />
+          </Key>
+          <Property Name="MyTelBillChargeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MSISDN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Result" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_Page">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PageDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="20" />
+          <Property Name="RoleDescription" Type="nvarchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_RolePermission">
+          <Key>
+            <PropertyRef Name="RolePermissionID" />
+          </Key>
+          <Property Name="RolePermissionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PageID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" />
+          <Property Name="EncryptedKey" Type="nvarchar" MaxLength="20" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="15" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="15" />
+          <Property Name="RoleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Mpop_Contestant">
+          <Key>
+            <PropertyRef Name="ContestantID" />
+          </Key>
+          <Property Name="ContestantID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedData" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="VoteCount" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="ContestantNo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Mpop_VoteOpeningandClosing">
+          <Key>
+            <PropertyRef Name="VotingTimeId" />
+          </Key>
+          <Property Name="VotingTimeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="sp_MPOP__Dashboard_Contestant_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_Page_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_Page_SelectedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_Role_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_Role_SelectedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_RolePermission_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_RolePermission_SelectedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RolePermissionID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_RolePermission_SelectedByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_User_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="EncryptedKey" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_User_DeletedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_User_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_User_SelectedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_UserRole_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_UserRole_SelectedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserRoleID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_UserRole_SelectedByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_UserRole_SelectedByUserIDRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VotingTimeID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_Contestant_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContestantID" Type="varchar" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedData" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdateBy" Type="varchar" Mode="In" />
+          <Parameter Name="VoteCount" Type="int" Mode="In" />
+          <Parameter Name="Remark" Type="varchar" Mode="In" />
+          <Parameter Name="ContestantNo" Type="varchar" Mode="In" />
+          <Parameter Name="Flag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_MPTBillCharge_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MPTBillChargeID" Type="nvarchar" Mode="In" />
+          <Parameter Name="MSISDN" Type="nvarchar" Mode="In" />
+          <Parameter Name="Amount" Type="money" Mode="In" />
+          <Parameter Name="Result" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_MyTelBillCharge_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MyTelBillChargeID" Type="nvarchar" Mode="In" />
+          <Parameter Name="MSISDN" Type="nvarchar" Mode="In" />
+          <Parameter Name="Amount" Type="money" Mode="In" />
+          <Parameter Name="Result" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_Page_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="DeletedDate" Type="datetime" Mode="In" />
+          <Parameter Name="DeletedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="Flag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_RolePermission_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RolePermissionID" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageID" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="DeletedDate" Type="datetime" Mode="In" />
+          <Parameter Name="DeletedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="Flag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_RolePermission_DeletedByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_User_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="EncryptedKey" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="DeletedDate" Type="datetime" Mode="In" />
+          <Parameter Name="DeletedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="Flag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_UserRole_Mapping_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserRoleID" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserID" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="DeletedDate" Type="datetime" Mode="In" />
+          <Parameter Name="DeletedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="Flag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MPOP_Dashboard_VotingOpeningandClosing_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VotingTimeId" Type="nvarchar" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Flag" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="mpop_uatModelStoreContainer">
+          <EntitySet Name="DashboardPages" EntityType="Self.DashboardPages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_MPTBillCharge" EntityType="Self.T_Dashboard_CMS_MPTBillCharge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_MyTelBillCharge" EntityType="Self.T_Dashboard_CMS_MyTelBillCharge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_Page" EntityType="Self.T_Dashboard_CMS_Page" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_Role" EntityType="Self.T_Dashboard_CMS_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_RolePermission" EntityType="Self.T_Dashboard_CMS_RolePermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_User" EntityType="Self.T_Dashboard_CMS_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dashboard_CMS_UserRole" EntityType="Self.T_Dashboard_CMS_UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Mpop_Contestant" EntityType="Self.T_Mpop_Contestant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Mpop_VoteOpeningandClosing" EntityType="Self.T_Mpop_VoteOpeningandClosing" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mpop_uatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Dashboard_CMS_Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RoleDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Mpop_Contestant">
+          <Key>
+            <PropertyRef Name="ContestantID" />
+          </Key>
+          <Property Name="ContestantID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedData" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VoteCount" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContestantNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="mpop_uatEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Dashboard_CMS_Role" EntityType="Self.T_Dashboard_CMS_Role" />
+          <EntitySet Name="T_Dashboard_CMS_UserRole" EntityType="Self.T_Dashboard_CMS_UserRole" />
+          <EntitySet Name="T_Mpop_Contestant" EntityType="Self.T_Mpop_Contestant" />
+          <FunctionImport Name="sp_MPOP__Dashboard_Role_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_Role_Select_Result)" />
+          <FunctionImport Name="sp_MPOP__Dashboard_User_SelectedByID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_User_SelectedByID_Result)">
+          <Parameter Name="userid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword_Result)">
+          <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_Role_SelectedByID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_Role_SelectedByID_Result)">
+          <Parameter Name="RoleID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_User_ChangePassword">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="EncryptedKey" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_User_DeletedByID">
+          <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_User_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_User_Select_Result1)" />
+          <FunctionImport Name="sp_MPOP__Dashboard_UserRole_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_UserRole_Select_Result)" />
+          <FunctionImport Name="sp_MPOP__Dashboard_UserRole_SelectedByID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_UserRole_SelectedByID_Result)">
+          <Parameter Name="UserRoleID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="DashboardPages" EntityType="mpop_uatModel.DashboardPage" />
+          <FunctionImport Name="sp_MPOP_Dashboard_UserRole_Mapping_CRUD">
+            <Parameter Name="UserRoleID" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="RoleID" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="DeletedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DeletedBy" Mode="In" Type="String" />
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_RolePermission_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_RolePermission_Select_Result)" />
+          <FunctionImport Name="sp_MPOP__Dashboard_UserRole_SelectedByUserIDRoleID" ReturnType="Collection(String)">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="RoleID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_UserRole_SelectedByUserID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_UserRole_SelectedByUserID_Result)">
+          <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_RolePermission_DeletedByUserRoleID">
+          <Parameter Name="UserRoleID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID_Result)">
+          <Parameter Name="VotingTimeID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="T_Dashboard_CMS_User" EntityType="mpop_uatModel.T_Dashboard_CMS_User" />
+          <FunctionImport Name="sp_MPOP_Dashboard_User_CRUD">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="EncryptedKey" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="RoleID" Mode="In" Type="String" />
+            <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="DeletedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DeletedBy" Mode="In" Type="String" />
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_VotingOpeningandClosing_CRUD">
+            <Parameter Name="VotingTimeId" Mode="In" Type="String" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="T_Mpop_VoteOpeningandClosing" EntityType="mpop_uatModel.T_Mpop_VoteOpeningandClosing" />
+          <FunctionImport Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result5)" />
+          <EntitySet Name="T_Dashboard_CMS_RolePermission" EntityType="mpop_uatModel.T_Dashboard_CMS_RolePermission" />
+          <FunctionImport Name="sp_MPOP__Dashboard_RolePermission_SelectedByID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_RolePermission_SelectedByID_Result1)">
+          <Parameter Name="RolePermissionID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_RolePermission_SelectedByRoleID" ReturnType="Collection(String)">
+          <Parameter Name="RoleID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID_Result)">
+            <Parameter Name="RoleID" Mode="In" Type="String" />
+            <Parameter Name="PageID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_RolePermission_CRUD">
+            <Parameter Name="RolePermissionID" Mode="In" Type="String" />
+            <Parameter Name="RoleID" Mode="In" Type="String" />
+            <Parameter Name="PageID" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="DeletedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DeletedBy" Mode="In" Type="String" />
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_RolePermission_DeletedByRoleID">
+          <Parameter Name="RoleID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_Contestant_CRUD">
+            <Parameter Name="ContestantID" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="CreatedData" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdateBy" Mode="In" Type="String" />
+            <Parameter Name="VoteCount" Mode="In" Type="Int32" />
+            <Parameter Name="Remark" Mode="In" Type="String" />
+            <Parameter Name="ContestantNo" Mode="In" Type="String" />
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="T_Dashboard_CMS_Page" EntityType="mpop_uatModel.T_Dashboard_CMS_Page" />
+          <FunctionImport Name="sp_MPOP__Dashboard_Page_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_Page_Select_Result3)" />
+          <FunctionImport Name="sp_MPOP__Dashboard_Page_SelectedByID" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_Page_SelectedByID_Result4)">
+          <Parameter Name="PageID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_Page_CRUD">
+            <Parameter Name="PageID" Mode="In" Type="String" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="PageDescription" Mode="In" Type="String" />
+            <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="DeletedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DeletedBy" Mode="In" Type="String" />
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP__Dashboard_Contestant_Select" ReturnType="Collection(mpop_uatModel.sp_MPOP__Dashboard_Contestant_Select_Result1)" />
+          <EntitySet Name="T_Dashboard_CMS_MPTBillCharge" EntityType="mpop_uatModel.T_Dashboard_CMS_MPTBillCharge" />
+          <EntitySet Name="T_Dashboard_CMS_MyTelBillCharge" EntityType="mpop_uatModel.T_Dashboard_CMS_MyTelBillCharge" />
+          <FunctionImport Name="sp_MPOP_Dashboard_MPTBillCharge_CRUD">
+            <Parameter Name="MPTBillChargeID" Mode="In" Type="String" />
+            <Parameter Name="MSISDN" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Result" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MPOP_Dashboard_MyTelBillCharge_CRUD">
+            <Parameter Name="MyTelBillChargeID" Mode="In" Type="String" />
+            <Parameter Name="MSISDN" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="Result" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_MPOP_Role_Select_Result">
+          <Property Type="String" Name="RoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="RoleDescription" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Role_Select_Result1">
+          <Property Type="String" Name="RoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Role_Select_Result2">
+          <Property Type="String" Name="RoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Role_Select_Result">
+          <Property Type="String" Name="RoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_EncryptedKey_Result">
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_EncryptedKey_Select_Result">
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_Select_Result">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_SelectedByID_Result">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword_Result">
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_EncryptedKey_SelectedByUserName_Result">
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Role_SelectedByID_Result">
+          <Property Type="String" Name="RoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_User_Select_Result1">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result">
+          <Property Type="String" Name="VotingTimeId" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result1">
+          <Property Type="String" Name="VotingTimeId" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result2">
+          <Property Type="String" Name="VotingTimeId" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_UserRole_Select_Result">
+          <Property Type="String" Name="UserRoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_UserRole_SelectedByID_Result">
+          <Property Type="String" Name="UserRoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Dashboard_User_CRUD_Result">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_Select_Result">
+          <Property Type="String" Name="PageID" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <EntityType Name="DashboardPage">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PageDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_SelectedByID_Result">
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_RolePermission_Select_Result">
+          <Property Type="String" Name="RolePermissionID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserRoleID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_RolePermission_SelectedByID_Result">
+          <Property Type="String" Name="UserRoleID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_UserRole_SelectedByUserID_Result">
+          <Property Type="String" Name="UserRoleID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_RolePermission_SelectedByUserRoleIDandPageID_Result">
+          <Property Type="String" Name="RolePermissionID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserRoleID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID_Result">
+          <Property Type="String" Name="VotingTimeID" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Dashboard_VotingOpeningandClosing_CRUD_Result">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_Select_Result1">
+          <Property Type="String" Name="PageID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result3">
+          <Property Type="String" Name="VotingTimeID" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Dashboard_User_CRUD_Result1">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="T_Dashboard_CMS_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EncryptedKey" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_MPOP_Dashboard_User_CRUD_Result2">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Dashboard_User_CRUD_Result3">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EncryptedKey" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP_Dashboard_User_CRUD_Result4">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result4">
+          <Property Type="String" Name="VotingTimeID" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="T_Mpop_VoteOpeningandClosing">
+          <Key>
+            <PropertyRef Name="VotingTimeId" />
+          </Key>
+          <Property Name="VotingTimeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result5">
+          <Property Type="String" Name="VotingTimeId" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="T_Dashboard_CMS_RolePermission">
+          <Key>
+            <PropertyRef Name="RolePermissionID" />
+          </Key>
+          <Property Name="RolePermissionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_MPOP__Dashboard_RolePermission_SelectedByID_Result1">
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID_Result">
+          <Property Type="String" Name="RolePermissionID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Contestant_Select_Result">
+          <Property Type="String" Name="ContestantID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="CreatedData" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="VoteCount" Nullable="true" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContestantNo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_SelectedByID_Result1">
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_SelectedByID_Result2">
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_Select_Result2">
+          <Property Type="String" Name="PageID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_SelectedByID_Result3">
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="T_Dashboard_CMS_Page">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_Select_Result3">
+          <Property Type="String" Name="PageID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DeletedBy" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Page_SelectedByID_Result4">
+          <Property Type="String" Name="PageName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PageDescription" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_MPOP__Dashboard_Contestant_Select_Result1">
+          <Property Type="String" Name="ContestantID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="CreatedData" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="VoteCount" Nullable="true" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContestantNo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="T_Dashboard_CMS_MPTBillCharge">
+          <Key>
+            <PropertyRef Name="MPTBillChargeID" />
+          </Key>
+          <Property Name="MPTBillChargeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MSISDN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Result" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Dashboard_CMS_MyTelBillCharge">
+          <Key>
+            <PropertyRef Name="MyTelBillChargeID" />
+          </Key>
+          <Property Name="MyTelBillChargeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MSISDN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Result" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mpop_uatModelStoreContainer" CdmEntityContainer="mpop_uatEntities">
+          <EntitySetMapping Name="T_Dashboard_CMS_Role">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_Role">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Dashboard_CMS_UserRole">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_UserRole">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_UserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Mpop_Contestant">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Mpop_Contestant">
+              <MappingFragment StoreEntitySet="T_Mpop_Contestant">
+                <ScalarProperty Name="ContestantID" ColumnName="ContestantID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedData" ColumnName="CreatedData" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="VoteCount" ColumnName="VoteCount" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ContestantNo" ColumnName="ContestantNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_Role_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_Role_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_Role_Select_Result">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_User_SelectedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_User_SelectedByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_User_SelectedByID_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EncryptedKey" ColumnName="EncryptedKey" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_User_EncryptedKey_SelectedByPassword_Result">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EncryptedKey" ColumnName="EncryptedKey" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_Role_SelectedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_Role_SelectedByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_Role_SelectedByID_Result">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_User_ChangePassword" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_User_ChangePassword" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_User_DeletedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_User_DeletedByID" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_User_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_User_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_User_Select_Result1">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EncryptedKey" ColumnName="EncryptedKey" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_UserRole_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_UserRole_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_UserRole_Select_Result">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_UserRole_SelectedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_UserRole_SelectedByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_UserRole_SelectedByID_Result">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DashboardPages">
+            <EntityTypeMapping TypeName="mpop_uatModel.DashboardPage">
+              <MappingFragment StoreEntitySet="DashboardPages">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_UserRole_Mapping_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_UserRole_Mapping_CRUD" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_RolePermission_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_RolePermission_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_RolePermission_Select_Result">
+                <ScalarProperty Name="RolePermissionID" ColumnName="RolePermissionID" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_UserRole_SelectedByUserIDRoleID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_UserRole_SelectedByUserIDRoleID" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_UserRole_SelectedByUserID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_UserRole_SelectedByUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_UserRole_SelectedByUserID_Result">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_VotingOpeningandClosing_SelectedByID_Result">
+                <ScalarProperty Name="VotingTimeID" ColumnName="VotingTimeID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="T_Dashboard_CMS_User">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_User">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_User">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EncryptedKey" ColumnName="EncryptedKey" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_User_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_User_CRUD" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_VotingOpeningandClosing_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_VotingOpeningandClosing_CRUD" />
+          <EntitySetMapping Name="T_Mpop_VoteOpeningandClosing">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Mpop_VoteOpeningandClosing">
+              <MappingFragment StoreEntitySet="T_Mpop_VoteOpeningandClosing">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="VotingTimeId" ColumnName="VotingTimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_VotingOpeningandClosing_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_VotingOpeningandClosing_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_VotingOpeningandClosing_Select_Result5">
+                <ScalarProperty Name="VotingTimeId" ColumnName="VotingTimeId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="T_Dashboard_CMS_RolePermission">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_RolePermission">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_RolePermission">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RolePermissionID" ColumnName="RolePermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_RolePermission_SelectedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_RolePermission_SelectedByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_RolePermission_SelectedByID_Result1">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_RolePermission_SelectedByRoleID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_RolePermission_SelectedByRoleID" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_RolePermission_SelectedByRoleIDandPageID_Result">
+                <ScalarProperty Name="RolePermissionID" ColumnName="RolePermissionID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_RolePermission_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_RolePermission_CRUD" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_RolePermission_DeletedByRoleID" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_RolePermission_DeletedByRoleID" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_Contestant_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_Contestant_CRUD" />
+          <EntitySetMapping Name="T_Dashboard_CMS_Page">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_Page">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_Page">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_Page_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_Page_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_Page_Select_Result3">
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_Page_SelectedByID" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_Page_SelectedByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_Page_SelectedByID_Result4">
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_Page_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_Page_CRUD" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP__Dashboard_Contestant_Select" FunctionName="mpop_uatModel.Store.sp_MPOP__Dashboard_Contestant_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mpop_uatModel.sp_MPOP__Dashboard_Contestant_Select_Result1">
+                <ScalarProperty Name="ContestantID" ColumnName="ContestantID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedData" ColumnName="CreatedData" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="VoteCount" ColumnName="VoteCount" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ContestantNo" ColumnName="ContestantNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="T_Dashboard_CMS_MPTBillCharge">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_MPTBillCharge">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_MPTBillCharge">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+                <ScalarProperty Name="MPTBillChargeID" ColumnName="MPTBillChargeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Dashboard_CMS_MyTelBillCharge">
+            <EntityTypeMapping TypeName="mpop_uatModel.T_Dashboard_CMS_MyTelBillCharge">
+              <MappingFragment StoreEntitySet="T_Dashboard_CMS_MyTelBillCharge">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+                <ScalarProperty Name="MyTelBillChargeID" ColumnName="MyTelBillChargeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_MPTBillCharge_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_MPTBillCharge_CRUD" />
+          <FunctionImportMapping FunctionImportName="sp_MPOP_Dashboard_MyTelBillCharge_CRUD" FunctionName="mpop_uatModel.Store.sp_MPOP_Dashboard_MyTelBillCharge_CRUD" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
